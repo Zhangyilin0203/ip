@@ -70,7 +70,7 @@ public class Duke {
     }
 
     public static void printTask(Task task){
-        System.out.println("Got it. I've added this task: ");
+        System.out.println("Got it. I've added this task:");
         System.out.println(task);
         System.out.println("Now you have " + countThings + " tasks in the list.");
     }
