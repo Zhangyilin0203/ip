@@ -1,8 +1,15 @@
+package duke;
+
+import duke.task.Deadline;
+import duke.task.Event;
+import duke.task.Task;
+import duke.task.Todo;
+
 import java.util.Scanner;
-import java.util.Arrays;
+
 public class Duke {
     static int countThings=0;
-    static Task [] tasks = new Task[100];
+    static Task[] tasks = new Task[100];
 
     public static void storeTextAndList() throws DukeException{
         String inputLine;
@@ -43,13 +50,13 @@ public class Duke {
 
     public static void dealWithException(String inputLine){
         if(inputLine.equals("todo")){
-            System.out.println("☹ OOPS!!! The description of a todo cannot be empty.");
+            System.out.println("OOPS!!! The description of a todo cannot be empty.");
         }else if(inputLine.equals("deadline")){
-            System.out.println("☹ OOPS!!! The description of a deadline cannot be empty.");
+            System.out.println("OOPS!!! The description of a deadline cannot be empty.");
         }else if(inputLine.equals("event")){
-            System.out.println("☹ OOPS!!! The description of a event cannot be empty.");
+            System.out.println("OOPS!!! The description of a event cannot be empty.");
         }else{
-            System.out.println(("☹ OOPS!!! I'm sorry, but I don't know what that means :-("));
+            System.out.println(("OOPS!!! I'm sorry, but I don't know what that means :-("));
         }
     }
 
@@ -121,7 +128,7 @@ public class Duke {
 
     public static void main(String[] args) throws DukeException{
         String initialGreet = "____________________________________________________________\n" +
-                " Hello! I'm Duke\n" +
+                " Hello! I'm Duke.Duke\n" +
                 " What can I do for you?\n" +
                 "____________________________________________________________\n";
 
