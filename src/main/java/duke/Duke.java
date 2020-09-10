@@ -9,7 +9,8 @@ import java.util.Scanner;
 
 public class Duke {
     static int countThings=0;
-    static Task[] tasks = new Task[100];
+    public static final int MAXIMUM_TASK_NUMBER = 100;
+    static Task[] tasks = new Task[MAXIMUM_TASK_NUMBER];
 
     public static void storeTextAndList() throws DukeException{
         String inputLine;
@@ -19,25 +20,21 @@ public class Duke {
             printLine();
             try{
                 if(inputLine.equals("list")){
-                    int count;
-                    for(count=0;count<countThings;count++){
-                        System.out.print(count+1 + ". ");
-                        System.out.println(tasks[count]);
-                    }
+                    printList();
                 } else if(inputLine.contains("done")){
                     int index = Integer.parseInt(inputLine.substring(5));
-                    doneTask(index);
-                } else {
-                    if (inputLine.contains("todo")) {
-                        addTodoTask(inputLine);
-                    } else if (inputLine.contains("deadline")) {
-                        addDeadlineTask(inputLine);
-                        ;
-                    } else if (inputLine.contains("event")) {
-                        addEventTask(inputLine);
-                    } else {
+                    if(index > countThings){
                         throw new DukeException();
                     }
+                    markAsDone(index);
+                }else if (inputLine.contains("todo")) {
+                    addTodoTask(inputLine);
+                } else if (inputLine.contains("deadline")) {
+                    addDeadlineTask(inputLine);
+                } else if (inputLine.contains("event")) {
+                    addEventTask(inputLine);
+                } else {
+                    throw new DukeException();
                 }
             }catch (DukeException e){
                 dealWithException(inputLine);
@@ -48,13 +45,23 @@ public class Duke {
         bye();
     }
 
+    private static void printList() {
+        int count;
+        for(count=0;count<countThings;count++){
+            System.out.print(count + 1 + ". ");
+            System.out.println(tasks[count]);
+        }
+    }
+
     public static void dealWithException(String inputLine){
         if(inputLine.equals("todo")){
             System.out.println("OOPS!!! The description of a todo cannot be empty.");
         }else if(inputLine.equals("deadline")){
             System.out.println("OOPS!!! The description of a deadline cannot be empty.");
-        }else if(inputLine.equals("event")){
+        }else if(inputLine.equals("event")) {
             System.out.println("OOPS!!! The description of a event cannot be empty.");
+        }else if(inputLine.contains("done")){
+            System.out.println("OOPS!!! The todo index is out of bound.");
         }else{
             System.out.println(("OOPS!!! I'm sorry, but I don't know what that means :-("));
         }
@@ -110,7 +117,7 @@ public class Duke {
         System.out.println("Now you have " + countThings + " tasks in the list.");
     }
 
-    public static void doneTask(int index){
+    public static void markAsDone(int index){
         tasks[index-1].taskDone();
         System.out.println("Nice! I've marked this task as done:\n" +tasks[index-1]);
     }
@@ -128,7 +135,7 @@ public class Duke {
 
     public static void main(String[] args) throws DukeException{
         String initialGreet = "____________________________________________________________\n" +
-                " Hello! I'm Duke.Duke\n" +
+                " Hello! I'm Duke\n" +
                 " What can I do for you?\n" +
                 "____________________________________________________________\n";
 
