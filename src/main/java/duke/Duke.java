@@ -6,11 +6,13 @@ import duke.task.Task;
 import duke.task.Todo;
 
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Duke {
     static int countThings=0;
-    public static final int MAXIMUM_TASK_NUMBER = 100;
-    static Task[] tasks = new Task[MAXIMUM_TASK_NUMBER];
+    //public static final int MAXIMUM_TASK_NUMBER = 100;
+    //static Task[] tasks = new Task[MAXIMUM_TASK_NUMBER];
+    public static ArrayList<Task> taskArray = new ArrayList<>();
 
     public static void storeTextAndList() throws DukeException{
         String inputLine;
@@ -33,6 +35,12 @@ public class Duke {
                     addDeadlineTask(inputLine);
                 } else if (inputLine.contains("event")) {
                     addEventTask(inputLine);
+                } else if (inputLine.contains("delete")){
+                    int index = Integer.parseInt(inputLine.substring(7));
+                    if(index > countThings){
+                        throw new DukeException();
+                    }
+                    deleteItem(index);
                 } else {
                     throw new DukeException();
                 }
@@ -45,11 +53,14 @@ public class Duke {
         bye();
     }
 
+
+
     private static void printList() {
-        int count;
-        for(count=0;count<countThings;count++){
-            System.out.print(count + 1 + ". ");
-            System.out.println(tasks[count]);
+        int count = 1;
+        for(Task task : taskArray){
+            System.out.print(count + ". ");
+            System.out.println(task);
+            count++;
         }
     }
 
@@ -74,8 +85,9 @@ public class Duke {
         }
         todoDescription = inputLine.substring(5);
         Task task = new Todo(todoDescription);
-        tasks[countThings] = task;
+        //tasks[countThings] = task;
         countThings++;
+        taskArray.add(task);
         printTask(task);
     }
 
@@ -90,8 +102,9 @@ public class Duke {
         deadlineDescription = inputLine.substring(9,getIndex-1);
         deadlineByDate = inputLine.substring(getIndex+4);
         Task task = new Deadline(deadlineDescription, deadlineByDate);
-        tasks[countThings] = task;
+        //tasks[countThings] = task;
         countThings++;
+        taskArray.add(task);
         printTask(task);
     }
 
@@ -106,8 +119,9 @@ public class Duke {
         eventDescription = inputLine.substring(6,getIndex-1);
         eventAtDate = inputLine.substring(getIndex+4);
         Task task = new Event(eventDescription, eventAtDate);
-        tasks[countThings] = task;
+        //tasks[countThings] = task;
         countThings++;
+        taskArray.add(task);
         printTask(task);
     }
 
@@ -118,8 +132,16 @@ public class Duke {
     }
 
     public static void markAsDone(int index){
-        tasks[index-1].taskDone();
-        System.out.println("Nice! I've marked this task as done:\n" +tasks[index-1]);
+        taskArray.get(index-1).taskDone();
+        System.out.println("Nice! I've marked this task as done:\n" +taskArray.get(index-1));
+    }
+
+    private static void deleteItem(int index) {
+        Task task = taskArray.remove(index - 1);
+        System.out.println("Noted. I've removed this task: ");
+        System.out.println(task);
+        countThings--;
+        System.out.println("Now you have " + countThings + " tasks in the list.");
     }
 
     public static void printLine(){
