@@ -9,6 +9,11 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Duke {
+    public static final String TODO = "todo";
+    public static final String DEADLINE = "deadline";
+    public static final String EVENT = "event";
+    public static final String DELETE = "delete";
+    public static final String DONE = "done";
     static int countThings=0;
     //public static final int MAXIMUM_TASK_NUMBER = 100;
     //static Task[] tasks = new Task[MAXIMUM_TASK_NUMBER];
@@ -29,13 +34,13 @@ public class Duke {
                         throw new DukeException();
                     }
                     markAsDone(index);
-                }else if (inputLine.contains("todo")) {
+                }else if (inputLine.contains(TODO)) {
                     addTodoTask(inputLine);
-                } else if (inputLine.contains("deadline")) {
+                } else if (inputLine.contains(DEADLINE)) {
                     addDeadlineTask(inputLine);
-                } else if (inputLine.contains("event")) {
+                } else if (inputLine.contains(EVENT)) {
                     addEventTask(inputLine);
-                } else if (inputLine.contains("delete")){
+                } else if (inputLine.contains(DELETE)){
                     int index = Integer.parseInt(inputLine.substring(7));
                     if(index > countThings){
                         throw new DukeException();
@@ -65,15 +70,15 @@ public class Duke {
     }
 
     public static void dealWithException(String inputLine){
-        if(inputLine.equals("todo")){
+        if(inputLine.equals(TODO)){
             System.out.println("OOPS!!! The description of a todo cannot be empty.");
-        }else if(inputLine.equals("deadline")){
+        }else if(inputLine.equals(DEADLINE)){
             System.out.println("OOPS!!! The description of a deadline cannot be empty.");
-        }else if(inputLine.equals("event")) {
+        }else if(inputLine.equals(EVENT)) {
             System.out.println("OOPS!!! The description of a event cannot be empty.");
-        }else if(inputLine.contains("done")) {
+        }else if(inputLine.contains(DONE)) {
             System.out.println("OOPS!!! The done index is out of bound.");
-        }else if(inputLine.contains("delete")) {
+        }else if(inputLine.contains(DELETE)) {
             System.out.println("OOPS!!! The delete index is out of bound.");
         }else{
             System.out.println(("OOPS!!! I'm sorry, but I don't know what that means :-("));
@@ -82,7 +87,7 @@ public class Duke {
 
     public static void addTodoTask(String inputLine) throws DukeException{
         String todoDescription;
-        if(inputLine.equals("todo")){
+        if(inputLine.equals(TODO)){
             throw new DukeException();
         }
         todoDescription = inputLine.substring(5);
@@ -97,7 +102,7 @@ public class Duke {
         String deadlineDescription;
         String deadlineByDate;
         int getIndex;
-        if(inputLine.equals("deadline")){
+        if(inputLine.equals(DEADLINE)){
             throw new DukeException();
         }
         getIndex = inputLine.indexOf("/");
@@ -114,7 +119,7 @@ public class Duke {
         String eventDescription;
         String eventAtDate;
         int getIndex;
-        if(inputLine.equals("event")){
+        if(inputLine.equals(EVENT)){
             throw new DukeException();
         }
         getIndex = inputLine.indexOf("/");
