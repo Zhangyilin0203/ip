@@ -71,8 +71,10 @@ public class Duke {
             System.out.println("OOPS!!! The description of a deadline cannot be empty.");
         }else if(inputLine.equals("event")) {
             System.out.println("OOPS!!! The description of a event cannot be empty.");
-        }else if(inputLine.contains("done")){
-            System.out.println("OOPS!!! The todo index is out of bound.");
+        }else if(inputLine.contains("done")) {
+            System.out.println("OOPS!!! The done index is out of bound.");
+        }else if(inputLine.contains("delete")) {
+            System.out.println("OOPS!!! The delete index is out of bound.");
         }else{
             System.out.println(("OOPS!!! I'm sorry, but I don't know what that means :-("));
         }
