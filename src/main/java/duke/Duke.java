@@ -8,6 +8,11 @@ import duke.task.Todo;
 import java.util.Scanner;
 import java.util.ArrayList;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.FileNotFoundException;
+
 public class Duke {
     public static final String TODO = "todo";
     public static final String DEADLINE = "deadline";
@@ -18,6 +23,45 @@ public class Duke {
     //public static final int MAXIMUM_TASK_NUMBER = 100;
     //static Task[] tasks = new Task[MAXIMUM_TASK_NUMBER];
     public static ArrayList<Task> taskArray = new ArrayList<>();
+    public static final String FILE_PATH = "duke.txt";
+
+    public static void writeToFile(String FILE_PATH){
+        try {
+            File f = new File(FILE_PATH);
+            FileWriter fw = new FileWriter(FILE_PATH);
+            for(Task task: taskArray){
+                fw.write(task.printIntoFile() + "\n");
+            }
+            fw.close();
+        } catch (IOException e) {
+            System.out.println("Error writing file");
+        }
+    }
+
+    public static void readFromFile(String FILE_PATH){
+        try {
+            File f = new File(FILE_PATH);
+            Scanner sc = new Scanner(f);
+            Task task;
+            while(sc.hasNext()){
+                String[] taskInFile = sc.nextLine().split("\\|");
+                if(taskInFile[0].equals("T")){
+                    task = new Todo(taskInFile[2]);
+                }else if(taskInFile[0].equals("D")){
+                    task = new Deadline(taskInFile[2],taskInFile[3]);
+                }else{
+                    task = new Event(taskInFile[2], taskInFile[3]);
+                }
+                countThings++;
+                if(taskInFile[1].equals("true")){
+                    task.taskDone();
+                }
+                taskArray.add(task);
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("Error reading file");
+        }
+    }
 
     public static void storeTextAndList() throws DukeException{
         String inputLine;
@@ -96,6 +140,7 @@ public class Duke {
         countThings++;
         taskArray.add(task);
         printTask(task);
+
     }
 
     public static void addDeadlineTask(String inputLine) throws DukeException{
@@ -113,6 +158,7 @@ public class Duke {
         countThings++;
         taskArray.add(task);
         printTask(task);
+
     }
 
     public static void addEventTask(String inputLine) throws DukeException{
@@ -130,6 +176,7 @@ public class Duke {
         countThings++;
         taskArray.add(task);
         printTask(task);
+
     }
 
     public static void printTask(Task task){
@@ -163,6 +210,7 @@ public class Duke {
 
 
     public static void main(String[] args) throws DukeException{
+        readFromFile(FILE_PATH);
         String initialGreet = "____________________________________________________________\n" +
                 " Hello! I'm Duke\n" +
                 " What can I do for you?\n" +
@@ -170,6 +218,7 @@ public class Duke {
 
         System.out.println(initialGreet);
         storeTextAndList();
+        writeToFile(FILE_PATH);
     }
 
 
