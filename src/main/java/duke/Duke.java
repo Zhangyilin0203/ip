@@ -41,6 +41,7 @@ public class Duke {
     public static void readFromFile(String FILE_PATH){
         try {
             File f = new File(FILE_PATH);
+            f.createNewFile();
             Scanner sc = new Scanner(f);
             Task task;
             while(sc.hasNext()){
@@ -60,6 +61,8 @@ public class Duke {
             }
         } catch (FileNotFoundException e) {
             System.out.println("Error reading file");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
