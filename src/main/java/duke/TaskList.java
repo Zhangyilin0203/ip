@@ -6,6 +6,7 @@ import duke.task.Task;
 import duke.task.Todo;
 
 import java.util.ArrayList;
+import static java.util.stream.Collectors.toList;
 
 public class TaskList {
     public static ArrayList<Task> tasksList;
@@ -42,6 +43,23 @@ public class TaskList {
             System.out.print(count + ". ");
             System.out.println(task);
             count++;
+        }
+    }
+
+    public static void findTasks(String inputLine) {
+        String findLine = inputLine.substring(5);
+        ArrayList<Task> findTasks = (ArrayList<Task>) tasksList.stream()
+                .filter((t) -> t.getDescription().contains(findLine))
+                .collect(toList());
+        System.out.println("Here are the matching tasks in your list:");
+        int count = 1;
+        for(Task task : findTasks){
+            System.out.print(count + ". ");
+            System.out.println(task);
+            count++;
+        }
+        if(count==1){
+            System.out.println("no matching result");
         }
     }
 
