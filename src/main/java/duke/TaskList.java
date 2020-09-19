@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import static java.util.stream.Collectors.toList;
 
 public class TaskList {
-    public static ArrayList<Task> tasksList;
+    private static ArrayList<Task> tasksList;
 
     public TaskList(){
         this.tasksList = new ArrayList<>();

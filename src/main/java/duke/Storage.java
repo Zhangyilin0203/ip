@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Storage {
-    public static ArrayList<Task> taskArrayList;
+    private static ArrayList<Task> taskArrayList;
     private static File f;
     private static String filePath;
     public static int countFileTasks = 0;

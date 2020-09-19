@@ -5,17 +5,17 @@ import duke.task.Task;
 import java.util.Scanner;
 
 public class Ui {
-    public static TaskList tasks = new TaskList();
+    private static TaskList tasks = new TaskList();
     public static int countTasks = 0;
-    public static final String TODO = "todo";
-    public static final String DEADLINE = "deadline";
-    public static final String EVENT = "event";
-    public static final String DELETE = "delete";
-    public static final String DONE = "done";
-    public static final String LIST = "list";
-    public static final String BYE = "bye";
-    public static final String FIND = "find";
-    public Parser parser;
+    private static final String TODO = "todo";
+    private static final String DEADLINE = "deadline";
+    private static final String EVENT = "event";
+    private static final String DELETE = "delete";
+    private static final String DONE = "done";
+    private static final String LIST = "list";
+    private static final String BYE = "bye";
+    private static final String FIND = "find";
+    private Parser parser;
 
     public void getCount(int countThings){
         this.countTasks =countThings;
