@@ -2,7 +2,16 @@ package duke;
 
 import duke.task.Task;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
+import java.text.ParseException;
+import java.time.LocalDate;
+import java.util.Date;
+import java.time.format.DateTimeFormatter;
+import java.text.SimpleDateFormat;
 
 public class Parser {
     public static final String TODO = "todo";
@@ -42,5 +51,17 @@ public class Parser {
             Ui.dealWithException(inputLine);
             return FAIL;
         }
+    }
+
+    public static String getDateFormat(String datetime) {
+        LocalDate date;
+        String dateForm;
+        try {
+            date = LocalDate.parse(datetime);
+            dateForm = date.format(DateTimeFormatter.ofPattern("MMM dd yyyy"));
+        } catch (Exception e) {
+            dateForm=datetime;
+        }
+        return dateForm;
     }
 }
