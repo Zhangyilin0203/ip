@@ -1,20 +1,161 @@
 # User Guide
 
+##introduction
+Duke is a Personal Assistant Chatbot that helps a person to keep track of his or her tasks, including todo tasks, deadline tasks and events.
+
 ## Features 
 
-### Feature 1 
-Description of feature.
+### Add tasks
+Add any one of the three types of tasks: `todo`, `deadline`, `event`.
+
+For `deadline`, you need to add a due date. 
+
+For `event`, you need to add the date of the event.
+
+### Delete tasks
+Delete a task from the current tasks you have.
+
+### Complete tasks
+Mark a task as done when you complete the task.
+
+### Display all tasks
+Display the tasks to view all the tasks you have currently.
+
+### Search for tasks
+Search for specific tasks by giving a keyword.
+
+### Load tasks
+Load tasks from a local `.txt` file. Everytime when Duke is open, all the tasks will automatically be loaded from the local file.
+
+### Save tasks
+Save tasks to a local .txt file. Everytime when the user makes some changes, the changed data will be automatically stored into the local file.
+
+### Exit
+Exit Duke by typing `bye`.
+
 
 ## Usage
 
-### `Keyword` - Describe action
+### `todo` - Add todo task
 
-Describe action and its outcome.
+* Add a todo task with task description.
 
-Example of usage: 
+* Example of usage: 
 
-`keyword (optional arguments)`
+  `todo swimming`
 
-Expected outcome:
+* Expected outcome:
 
-`outcome`
+  ````
+  Got it. I've added this task:
+  [T][✘]borrow book
+  Now you have 1 tasks in the list.
+  ````
+  
+### `deadline` - Add deadline task
+
+* Add a deadline task with task description and due date.
+
+* Example of usage: 
+
+  `deadline return book /by Sunday`
+
+* Expected outcome:
+
+  ````
+  Got it. I've added this task:
+  [D][✘]return book (by: Sunday)
+  Now you have 2 tasks in the list.
+  ````
+
+### `event` - Add event
+
+* Add an event with description and event date.
+
+* Example of usage: 
+
+  `event project /at Mon 2-4pm`
+
+* Expected outcome:
+
+  ````
+  Got it. I've added this task:
+  [E][✘]project (at: Mon 2-4pm)
+  Now you have 3 tasks in the list.
+  ````
+  
+ ### `delete` - Delete a task
+ 
+ * Delete a specific task according to the given index.
+ 
+ * Example of usage: 
+ 
+   `delete 2`
+ 
+ * Expected outcome:
+ 
+   ````
+   Noted. I've removed this task: 
+   [D][✘]return book (by: Oct 15 2019)
+   Now you have 6 tasks in the list.
+   ````
+   
+ ### `done` - Complete a task
+  
+  * Mark a specific task as done when finish the task.
+  
+  * Example of usage: 
+  
+    `done 2`
+  
+  * Expected outcome:
+  
+    ````
+    Nice! I've marked this task as done:
+    [D][✓]return book (by: Sunday)
+    ````
+    
+ ### `list` - Display tasks
+  
+  * Display all the tasks you currently have.
+  
+  * Example of usage: 
+  
+    `list`
+  
+  * Expected outcome:
+  
+    ````
+    1. [D][✘]sleep (by: 12:00)
+    2. [D][✘]borrow book (by: 2020-1-1)
+    3. [E][✘]go home (at: 20:20)
+    ````
+
+    
+### `find` - Find tasks
+  
+  * Find out all the tasks with the given keyword.
+  
+  * Example of usage: 
+  
+    `find borrow`
+  
+  * Expected outcome:
+  
+    ````
+    Here are the matching tasks in your list:
+    1. [D][✘]borrow book (by: 2020-1-1)
+    ````
+    
+### `bye` - Exit Duke
+  * Exit Duke.
+  
+  * Example of usageL
+  
+    `bye`
+    
+  * Expected outcome:
+    
+      ````
+      Bye. Hope to see you again soon
+      ````
