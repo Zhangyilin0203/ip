@@ -24,6 +24,13 @@ public class Parser {
     private static final String FIND = "find";
     public static final String FAIL = "fail";
 
+    /**
+     * Parse user input command and deal with incorrect input.
+     *
+     * @param inputLine User input command line.
+     * @return The parsed command line.
+     * @throws DukeException Throw invalid or incomplete exceptions.
+     */
     public static String getCommand(String inputLine) throws DukeException{
         try{
             if (inputLine.equals(LIST)) {
@@ -56,6 +63,13 @@ public class Parser {
         }
     }
 
+    /**
+     * Function to understand date.
+     * If it is not a recognizable date, it will not convert it to standard output datetime.
+     *
+     * @param datetime User input date.
+     * @return A string contains the parsed datetime.
+     */
     public static String getDateFormat(String datetime) {
         LocalDate date;
         String dateForm;

@@ -8,35 +8,72 @@ import duke.task.Todo;
 import java.util.ArrayList;
 import static java.util.stream.Collectors.toList;
 
+/**
+ * Provide a list that all the data can be stored into.
+ * Support functions including add, delete, print tasks and find keywords of a task.
+ */
 public class TaskList {
     private static ArrayList<Task> tasksList;
 
+    /**
+     * A constructor that initialize the taskList when there is no existing taskList.
+     */
     public TaskList(){
         this.tasksList = new ArrayList<>();
     }
 
+    /**
+     * A constructor that initialize the taskList when there is an existing taskList.
+     *
+     * @param tasksList the existing taskList that we want our tasksList to be equal to.
+     */
     public TaskList(ArrayList<Task> tasksList){
         this.tasksList = tasksList;
     }
 
+    /**
+     * Add a task to the taskList.
+     *
+     * @param task the task to be added.
+     */
     public void add(Task task){
         tasksList.add(task);
     }
 
+    /**
+     * remove the task from the taskList.
+     *
+     * @param index the index of the removed task.
+     * @return the removed task.
+     */
     public Task remove(int index){
         Task removeTask = tasksList.remove(index);
         return removeTask;
     }
 
+    /**
+     * get the task with this index.
+     *
+     * @param index the index of the needed task.
+     * @return the task with this index.
+     */
     public Task get(int index){
         Task getTask=tasksList.get(index);
         return getTask;
     }
 
+    /**
+     * get the whole taskList.
+     *
+     * @return the corresponding taskList.
+     */
     public ArrayList<Task> getTasksList(){
         return tasksList;
     }
 
+    /**
+     * Print everything in the taskList.
+     */
     public static void printList() {
         int count = 1;
         for(Task task : tasksList){
@@ -46,6 +83,11 @@ public class TaskList {
         }
     }
 
+    /**
+     * To find corresponding tasks which include the required keyword.
+     *
+     * @param inputLine user input command to show the required keyword.
+     */
     public static void findTasks(String inputLine) {
         String findLine = inputLine.substring(5);
         ArrayList<Task> findTasks = (ArrayList<Task>) tasksList.stream()
@@ -63,6 +105,12 @@ public class TaskList {
         }
     }
 
+    /**
+     * To add a todo task into the taskList.
+     *
+     * @param inputLine User input command showing the description of the todo task.
+     * @throws DukeException Throw the DukeException.
+     */
     public static void addTodoTask(String inputLine) throws DukeException{
         String todoDescription;
         todoDescription = inputLine.substring(5);
@@ -73,6 +121,12 @@ public class TaskList {
 
     }
 
+    /**
+     * To add a deadline task into the taskList.
+     *
+     * @param inputLine User input command showing the description and deadline of the task.
+     * @throws DukeException Throw the DukeException.
+     */
     public static void addDeadlineTask(String inputLine) throws DukeException{
         String deadlineDescription;
         String deadlineByDate;
@@ -87,6 +141,12 @@ public class TaskList {
 
     }
 
+    /**
+     * To add an event to the taskList.
+     *
+     * @param inputLine User input command showing the description and time of the event.
+     * @throws DukeException Throw the DukeException.
+     */
     public static void addEventTask(String inputLine) throws DukeException{
         String eventDescription;
         String eventAtDate;
@@ -100,6 +160,13 @@ public class TaskList {
         Ui.printTask(task);
     }
 
+    /**
+     * To delete an item in the taskList.
+     *
+     * @param inputLine User input command showing the index of the deleted task.
+     * @param countTasks The number of the tasks in the taskList, to decide whether the index is out of bound.
+     * @throws DukeException Throw exception when the index is out of bound.
+     */
     public static void deleteItem(String inputLine, int countTasks) throws DukeException {
         int index = Integer.parseInt(inputLine.substring(7));
         if(index > countTasks){
@@ -112,6 +179,13 @@ public class TaskList {
         System.out.println("Now you have " + countTasks + " tasks in the list.");
     }
 
+    /**
+     * To mark task as done when you finish the task.
+     *
+     * @param inputLine User input command showing the index of the done task.
+     * @param countTasks The number of the tasks in the taskList, to decide whether the index is out of bound.
+     * @throws DukeException Throw exception when the index is out of bound.
+     */
     public static void markAsDone(String inputLine, int countTasks) throws DukeException{
         int index = Integer.parseInt(inputLine.substring(5));
         if(index > countTasks){

@@ -1,9 +1,19 @@
 package duke.task;
 
+/**
+ * A class for task objects.
+ * The parent class of the event, deadline and todo class.
+ */
 public class Task {
     protected String description;
     protected boolean isDone;
 
+    /**
+     * Constructor of the task object.
+     * Create a new task object from the given description.
+     *
+     * @param description The description of the task given by user.
+     */
     public Task(String description) {
         this.description = description;
         this.isDone = false;
