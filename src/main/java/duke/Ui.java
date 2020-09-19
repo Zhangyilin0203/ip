@@ -5,22 +5,33 @@ import duke.task.Task;
 import java.util.Scanner;
 
 public class Ui {
-    public static TaskList tasks = new TaskList();
+    private static TaskList tasks = new TaskList();
     public static int countTasks = 0;
-    public static final String TODO = "todo";
-    public static final String DEADLINE = "deadline";
-    public static final String EVENT = "event";
-    public static final String DELETE = "delete";
-    public static final String DONE = "done";
-    public static final String LIST = "list";
-    public static final String BYE = "bye";
-    public static final String FIND = "find";
-    public Parser parser;
+    private static final String TODO = "todo";
+    private static final String DEADLINE = "deadline";
+    private static final String EVENT = "event";
+    private static final String DELETE = "delete";
+    private static final String DONE = "done";
+    private static final String LIST = "list";
+    private static final String BYE = "bye";
+    private static final String FIND = "find";
+    private Parser parser;
 
+    /**
+     * Get the total number of tasks after the data is read from a file.
+     *
+     * @param countThings The total number of tasks in the taskList.
+     */
     public void getCount(int countThings){
         this.countTasks =countThings;
     }
 
+    /**
+     * Get user input commands and handle the user input commands.
+     *
+     * @param tasks The taskList that contains all the information of tasks.
+     * @throws DukeException Throw exception when there is incorrect or incomplete input commands.
+     */
     public void interact(TaskList tasks) throws DukeException{
         String inputLine;
         Scanner in = new Scanner(System.in);
@@ -60,12 +71,22 @@ public class Ui {
         }
     }
 
+    /**
+     * Print out the information of the task every time when a new task is being added.
+     *
+     * @param task The taskList that contains all the information of tasks.
+     */
     public static void printTask(Task task){
         System.out.println("Got it. I've added this task:");
         System.out.println(task);
         System.out.println("Now you have " + countTasks + " tasks in the list.");
     }
 
+    /**
+     * Deal with all the incorrect and incomplete user input command.
+     *
+     * @param inputLine User input command.
+     */
     public static void dealWithException(String inputLine){
         if(inputLine.equals(TODO)){
             System.out.println("OOPS!!! The description of a todo cannot be empty.");
@@ -82,6 +103,9 @@ public class Ui {
         }
     }
 
+    /**
+     * Print out bye when Duke is about to end.
+     */
     public static void bye(){
         System.out.println("Bye. Hope to see you again soon");
         printLine();
@@ -91,6 +115,9 @@ public class Ui {
         System.out.println("____________________________________________________________");
     }
 
+    /**
+     * Greet the user everytime they open Duke.
+     */
     public static void greeting(){
         String initialGreet = "____________________________________________________________\n" +
                 " Hello! I'm Duke\n" +
