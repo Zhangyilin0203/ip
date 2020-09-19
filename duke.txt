@@ -4,3 +4,7 @@ T|false|swimming
 D|false|sleep|12:00
 T|false|68
 T|false|99
+D|false|return book|Oct 15 2019
+D|false|borrow book|2020-1-1
+E|false|gohome|2020
+E|false|go|Sep 02 2020
