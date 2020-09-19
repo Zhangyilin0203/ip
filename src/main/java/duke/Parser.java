@@ -22,6 +22,7 @@ public class Parser {
     public static final String LIST = "list";
     public static final String BYE = "bye";
     public static final String FAIL = "fail";
+    public static final String FIND = "find";
 
     public static String getCommand(String inputLine) throws DukeException{
         try{
@@ -43,6 +44,8 @@ public class Parser {
                 return DELETE;
             } else if (inputLine.contains(DONE)) {
                 return DONE;
+            } else if (inputLine.contains(FIND)) {
+                return FIND;
             }
             else {
                 throw new DukeException();

@@ -14,6 +14,7 @@ public class Ui {
     public static final String DONE = "done";
     public static final String LIST = "list";
     public static final String BYE = "bye";
+    public static final String FIND = "find";
     public Parser parser;
 
     public void getCount(int countThings){
@@ -48,6 +49,9 @@ public class Ui {
                     break;
                 case DELETE:
                     tasks.deleteItem(inputLine,countTasks);
+                    break;
+                case FIND:
+                    tasks.findTasks(inputLine);
                     break;
                 case BYE:
                     return;
