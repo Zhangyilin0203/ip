@@ -1,6 +1,6 @@
 # User Guide
 
-##introduction
+## Introduction
 Duke is a Personal Assistant Chatbot that helps a person to keep track of his or her tasks, including todo tasks, deadline tasks and events.
 
 ## Features 
@@ -47,9 +47,11 @@ Exit Duke by typing `bye`.
 * Expected outcome:
 
   ````
+  ____________________________________________________________
   Got it. I've added this task:
   [T][✘]borrow book
   Now you have 1 tasks in the list.
+  ____________________________________________________________
   ````
   
 ### `deadline` - Add deadline task
@@ -63,9 +65,11 @@ Exit Duke by typing `bye`.
 * Expected outcome:
 
   ````
+  ____________________________________________________________
   Got it. I've added this task:
   [D][✘]return book (by: Sunday)
   Now you have 2 tasks in the list.
+  ____________________________________________________________
   ````
 
 ### `event` - Add event
@@ -79,9 +83,11 @@ Exit Duke by typing `bye`.
 * Expected outcome:
 
   ````
+  ____________________________________________________________
   Got it. I've added this task:
   [E][✘]project (at: Mon 2-4pm)
   Now you have 3 tasks in the list.
+  ____________________________________________________________
   ````
   
  ### `delete` - Delete a task
@@ -95,9 +101,11 @@ Exit Duke by typing `bye`.
  * Expected outcome:
  
    ````
+   ____________________________________________________________
    Noted. I've removed this task: 
    [D][✘]return book (by: Oct 15 2019)
    Now you have 6 tasks in the list.
+   ____________________________________________________________
    ````
    
  ### `done` - Complete a task
@@ -111,8 +119,10 @@ Exit Duke by typing `bye`.
   * Expected outcome:
   
     ````
+    ____________________________________________________________
     Nice! I've marked this task as done:
     [D][✓]return book (by: Sunday)
+    ____________________________________________________________
     ````
     
  ### `list` - Display tasks
@@ -126,9 +136,11 @@ Exit Duke by typing `bye`.
   * Expected outcome:
   
     ````
+    ____________________________________________________________
     1. [D][✘]sleep (by: 12:00)
     2. [D][✘]borrow book (by: 2020-1-1)
     3. [E][✘]go home (at: 20:20)
+    ____________________________________________________________
     ````
 
     
@@ -143,8 +155,10 @@ Exit Duke by typing `bye`.
   * Expected outcome:
   
     ````
+    ____________________________________________________________
     Here are the matching tasks in your list:
     1. [D][✘]borrow book (by: 2020-1-1)
+    ____________________________________________________________
     ````
     
 ### `bye` - Exit Duke
@@ -157,5 +171,7 @@ Exit Duke by typing `bye`.
   * Expected outcome:
     
       ````
+    ____________________________________________________________
       Bye. Hope to see you again soon
+    ____________________________________________________________
       ````
