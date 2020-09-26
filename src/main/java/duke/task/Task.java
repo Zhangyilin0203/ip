@@ -5,6 +5,10 @@ package duke.task;
  * The parent class of the event, deadline and todo class.
  */
 public class Task {
+    public static final String TICK_SYMBOL = "[\u2713]";
+    public static final String X_SYMBOL = "[\u2718]";
+    public static final String TASK_FILE_SYMBOL = "Task|";
+    public static final String SEPARATOR = "|";
     protected String description;
     protected boolean isDone;
 
@@ -28,7 +32,7 @@ public class Task {
     }
 
     public String getStatusIcon() {
-        return (isDone ? "[\u2713]" : "[\u2718]"); //return tick or X symbols
+        return (isDone ? TICK_SYMBOL : X_SYMBOL); //return tick or X symbols
     }
 
     public void taskDone(){
@@ -40,6 +44,6 @@ public class Task {
     }
 
     public String printIntoFile(){
-        return "Task|" + isDone + "|" + description + "|";
+        return TASK_FILE_SYMBOL + isDone + SEPARATOR + description + SEPARATOR;
     }
 }

@@ -6,6 +6,10 @@ package duke.task;
  */
 public class Todo extends Task{
 
+    public static final String TODO_SYMBOL = "[T]";
+    public static final String TODO_FILE_SYMBOL = "T|";
+    public static final String SEPARATOR = "|";
+
     /**
      * A constructor that create a new todotask from the description of the task.
      *
@@ -21,7 +25,7 @@ public class Todo extends Task{
      * @return The type icon of the todotask.
      */
     public String getTypeIcon(){
-        return "[T]";
+        return TODO_SYMBOL;
     }
 
     /**
@@ -39,6 +43,6 @@ public class Todo extends Task{
      * @return The standard form for todotask to write into local file.
      */
     public String printIntoFile(){
-        return "T|" + isDone + "|" + description;
+        return TODO_FILE_SYMBOL + isDone + SEPARATOR + description;
     }
 }

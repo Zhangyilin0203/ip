@@ -7,6 +7,9 @@ import duke.Parser;
  */
 public class Deadline extends Task {
 
+    public static final String DEADLINE_TYPE = "[D]";
+    public static final String DEADLINE_FILE_TYPE = "D|";
+    public static final String SEPARATOR = "|";
     protected String byDate;
     protected Parser parser;
 
@@ -28,7 +31,7 @@ public class Deadline extends Task {
      * @return The type icon of the deadline task.
      */
     public String getTypeIcon(){
-        return "[D]";
+        return DEADLINE_TYPE;
     }
 
     /**
@@ -46,7 +49,7 @@ public class Deadline extends Task {
      * @return The standard form for deadline task to write into local file.
      */
     public String printIntoFile(){
-        return "D|" + isDone + "|" + description + "|" + this.byDate;
+        return DEADLINE_FILE_TYPE + isDone + SEPARATOR + description + SEPARATOR + this.byDate;
     }
 
 

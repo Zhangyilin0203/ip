@@ -60,6 +60,7 @@ public class Ui {
                     break;
                 case DELETE:
                     tasks.deleteItem(inputLine,countTasks);
+                    countTasks--;
                     break;
                 case FIND:
                     tasks.findTasks(inputLine);

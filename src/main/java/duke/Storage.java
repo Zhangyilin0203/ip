@@ -16,6 +16,10 @@ import java.util.Scanner;
  * Loading the tasks from file and saving the tasks to file.
  */
 public class Storage {
+    public static final int TYPE = 0;
+    public static final int DISCRIPTION = 2;
+    public static final int DATE = 3;
+    public static final int IS_DONE = 1;
     private static ArrayList<Task> taskArrayList;
     private static File f;
     private static String filePath;
@@ -63,15 +67,15 @@ public class Storage {
             Task task;
             while(sc.hasNext()){
                 String[] taskInFile = sc.nextLine().split("\\|");
-                if(taskInFile[0].equals("T")){
-                    task = new Todo(taskInFile[2]);
-                }else if(taskInFile[0].equals("D")){
-                    task = new Deadline(taskInFile[2],taskInFile[3]);
+                if(taskInFile[TYPE].equals("T")){
+                    task = new Todo(taskInFile[DISCRIPTION]);
+                }else if(taskInFile[TYPE].equals("D")){
+                    task = new Deadline(taskInFile[DISCRIPTION],taskInFile[DATE]);
                 }else{
-                    task = new Event(taskInFile[2], taskInFile[3]);
+                    task = new Event(taskInFile[DISCRIPTION], taskInFile[DATE]);
                 }
                 countFileTasks++;
-                if(taskInFile[1].equals("true")){
+                if(taskInFile[IS_DONE].equals("true")){
                     task.taskDone();
                 }
                 tasks.add(task);

@@ -64,7 +64,7 @@ public class Parser {
     }
 
     /**
-     * Function to understand date.
+     * Function to parse date.
      * If it is not a recognizable date, it will not convert it to standard output datetime.
      *
      * @param datetime User input date.

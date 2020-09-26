@@ -115,7 +115,6 @@ public class TaskList {
         String todoDescription;
         todoDescription = inputLine.substring(5);
         Task task = new Todo(todoDescription);
-        //tasks[countThings] = task;
         tasksList.add(task);
         Ui.printTask(task);
 
@@ -135,7 +134,6 @@ public class TaskList {
         deadlineDescription = inputLine.substring(9,getIndex-1);
         deadlineByDate = inputLine.substring(getIndex+4);
         Task task = new Deadline(deadlineDescription, deadlineByDate);
-        //tasks[countThings] = task;
         tasksList.add(task);
         Ui.printTask(task);
 
@@ -155,7 +153,6 @@ public class TaskList {
         eventDescription = inputLine.substring(6,getIndex-1);
         eventAtDate = inputLine.substring(getIndex+4);
         Task task = new Event(eventDescription, eventAtDate);
-        //tasks[countThings] = task;
         tasksList.add(task);
         Ui.printTask(task);
     }
@@ -168,15 +165,16 @@ public class TaskList {
      * @throws DukeException Throw exception when the index is out of bound.
      */
     public static void deleteItem(String inputLine, int countTasks) throws DukeException {
+        int countTasksLocal = countTasks;
         int index = Integer.parseInt(inputLine.substring(7));
         if(index > countTasks){
             throw new DukeException();
         }
         Task task = tasksList.remove(index - 1);
-        countTasks--;
+        countTasksLocal--;
         System.out.println("Noted. I've removed this task: ");
         System.out.println(task);
-        System.out.println("Now you have " + countTasks + " tasks in the list.");
+        System.out.println("Now you have " + countTasksLocal + " tasks in the list.");
     }
 
     /**

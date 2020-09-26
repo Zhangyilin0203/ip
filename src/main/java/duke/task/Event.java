@@ -7,6 +7,9 @@ import duke.Parser;
  * Requires user to input the description and time of the event.
  */
 public class Event extends Task {
+    public static final String EVENT_TYPE = "[E]";
+    public static final String EVENT_FILE_TYPE = "E|";
+    public static final String SEPARATOR = "|";
     protected String atDate;
     protected Parser parser;
 
@@ -28,7 +31,7 @@ public class Event extends Task {
      * @return The type icon of the event.
      */
     public String getTypeIcon(){
-        return "[E]";
+        return EVENT_TYPE;
     }
 
     /**
@@ -46,6 +49,6 @@ public class Event extends Task {
      * @return The standard form for event to write into local file.
      */
     public String printIntoFile(){
-        return "E|" + isDone + "|" + description + "|" + this.atDate;
+        return EVENT_FILE_TYPE + isDone + SEPARATOR + description + SEPARATOR + this.atDate;
     }
 }
