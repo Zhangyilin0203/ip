@@ -43,7 +43,7 @@ public class Storage {
      *
      * @param tasks the taskList that the data is stored during running the program.
      */
-    public static void writeToFile(TaskList tasks){
+    public static void writeToFile(TaskList tasks) {
         try {
             FileWriter fw = new FileWriter(filePath);
             taskArrayList = tasks.getTasksList();
@@ -61,21 +61,21 @@ public class Storage {
      *
      * @param tasks A taskList that store the data read from file.
      */
-    public static int readFromFile(TaskList tasks){
+    public static int readFromFile(TaskList tasks) {
         try {
             Scanner sc = new Scanner(f);
             Task task;
-            while(sc.hasNext()){
+            while (sc.hasNext()) {
                 String[] taskInFile = sc.nextLine().split("\\|");
-                if(taskInFile[TYPE].equals("T")){
+                if (taskInFile[TYPE].equals("T")) {
                     task = new Todo(taskInFile[DISCRIPTION]);
-                }else if(taskInFile[TYPE].equals("D")){
+                } else if(taskInFile[TYPE].equals("D")) {
                     task = new Deadline(taskInFile[DISCRIPTION],taskInFile[DATE]);
-                }else{
+                } else {
                     task = new Event(taskInFile[DISCRIPTION], taskInFile[DATE]);
                 }
                 countFileTasks++;
-                if(taskInFile[IS_DONE].equals("true")){
+                if (taskInFile[IS_DONE].equals("true")) {
                     task.taskDone();
                 }
                 tasks.add(task);

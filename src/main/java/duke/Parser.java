@@ -31,7 +31,7 @@ public class Parser {
      * @return The parsed command line.
      * @throws DukeException Throw invalid or incomplete exceptions.
      */
-    public static String getCommand(String inputLine) throws DukeException{
+    public static String getCommand(String inputLine) throws DukeException {
         try{
             if (inputLine.equals(LIST)) {
                 return LIST;
