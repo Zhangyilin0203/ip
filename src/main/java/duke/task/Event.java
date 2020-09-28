@@ -7,9 +7,9 @@ import duke.Parser;
  * Requires user to input the description and time of the event.
  */
 public class Event extends Task {
-    public static final String EVENT_TYPE = "[E]";
-    public static final String EVENT_FILE_TYPE = "E|";
-    public static final String SEPARATOR = "|";
+    private static final String EVENT_TYPE = "[E]";
+    private static final String EVENT_FILE_TYPE = "E|";
+    private static final String SEPARATOR = "|";
     protected String atDate;
     protected Parser parser;
 

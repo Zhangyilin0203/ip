@@ -7,8 +7,8 @@ package duke.task;
 public class Task {
     public static final String TICK_SYMBOL = "[\u2713]";
     public static final String X_SYMBOL = "[\u2718]";
-    public static final String TASK_FILE_SYMBOL = "Task|";
-    public static final String SEPARATOR = "|";
+    private static final String TASK_FILE_SYMBOL = "Task|";
+    private static final String SEPARATOR = "|";
     protected String description;
     protected boolean isDone;
 

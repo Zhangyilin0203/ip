@@ -6,9 +6,9 @@ package duke.task;
  */
 public class Todo extends Task{
 
-    public static final String TODO_SYMBOL = "[T]";
-    public static final String TODO_FILE_SYMBOL = "T|";
-    public static final String SEPARATOR = "|";
+    private static final String TODO_SYMBOL = "[T]";
+    private static final String TODO_FILE_SYMBOL = "T|";
+    private static final String SEPARATOR = "|";
 
     /**
      * A constructor that create a new todotask from the description of the task.

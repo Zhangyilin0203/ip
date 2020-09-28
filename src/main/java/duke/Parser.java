@@ -22,7 +22,7 @@ public class Parser {
     private static final String LIST = "list";
     private static final String BYE = "bye";
     private static final String FIND = "find";
-    public static final String FAIL = "fail";
+    private static final String FAIL = "fail";
 
     /**
      * Parse user input command and deal with incorrect input.

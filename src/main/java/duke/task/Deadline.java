@@ -7,9 +7,9 @@ import duke.Parser;
  */
 public class Deadline extends Task {
 
-    public static final String DEADLINE_TYPE = "[D]";
-    public static final String DEADLINE_FILE_TYPE = "D|";
-    public static final String SEPARATOR = "|";
+    private static final String DEADLINE_TYPE = "[D]";
+    private static final String DEADLINE_FILE_TYPE = "D|";
+    private static final String SEPARATOR = "|";
     protected String byDate;
     protected Parser parser;
 

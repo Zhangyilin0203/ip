@@ -1,6 +1,5 @@
-D|false|sleep|12:00
-T|false|68
-T|true|99
-D|false|return book|Oct 15 2019
+D|true|sleep|12:00
 D|false|go home|11:00pm
 E|true|party|tomorrow
+D|false|assignment|tonight
+E|false|exam|Oct 05 2020

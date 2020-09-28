@@ -16,10 +16,10 @@ import java.util.Scanner;
  * Loading the tasks from file and saving the tasks to file.
  */
 public class Storage {
-    public static final int TYPE = 0;
-    public static final int DISCRIPTION = 2;
-    public static final int DATE = 3;
-    public static final int IS_DONE = 1;
+    private static final int TYPE = 0;
+    private static final int DISCRIPTION = 2;
+    private static final int DATE = 3;
+    private static final int IS_DONE = 1;
     private static ArrayList<Task> taskArrayList;
     private static File f;
     private static String filePath;

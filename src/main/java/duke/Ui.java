@@ -5,8 +5,10 @@ import duke.task.Task;
 import java.util.Scanner;
 
 public class Ui {
-    private static TaskList tasks = new TaskList();
     public static int countTasks = 0;
+    private static TaskList tasks = new TaskList();
+    private Parser parser;
+
     private static final String TODO = "todo";
     private static final String DEADLINE = "deadline";
     private static final String EVENT = "event";
@@ -15,7 +17,7 @@ public class Ui {
     private static final String LIST = "list";
     private static final String BYE = "bye";
     private static final String FIND = "find";
-    private Parser parser;
+
 
     /**
      * Get the total number of tasks after the data is read from a file.

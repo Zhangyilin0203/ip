@@ -13,14 +13,14 @@ import static java.util.stream.Collectors.toList;
  * Support functions including add, delete, print tasks and find keywords of a task.
  */
 public class TaskList {
-    public static final int DONE_COMMAND_LENGTH = 4;
-    public static final int TODO_COMMAND_LENGTH = 4;
-    public static final int DEADLINE_COMMAND_LENGTH = 8;
-    public static final int EVENT_COMMAND_LENGTH = 5;
-    public static final int BY_COMMAND_LENGTH = 4;
-    public static final int AT_COMMAND_LENGTH = 4;
-    public static final int FIND_COMMAND_LENGTH = 4;
-    public static final int DELETE_COMMAND_LENGTH = 6;
+    private static final int DONE_COMMAND_LENGTH = 4;
+    private static final int TODO_COMMAND_LENGTH = 4;
+    private static final int DEADLINE_COMMAND_LENGTH = 8;
+    private static final int EVENT_COMMAND_LENGTH = 5;
+    private static final int BY_COMMAND_LENGTH = 4;
+    private static final int AT_COMMAND_LENGTH = 4;
+    private static final int FIND_COMMAND_LENGTH = 4;
+    private static final int DELETE_COMMAND_LENGTH = 6;
     private static ArrayList<Task> tasksList;
 
     /**
