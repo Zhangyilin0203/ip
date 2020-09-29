@@ -7,7 +7,7 @@ package duke.task;
 public class Todo extends Task{
 
     private static final String TODO_SYMBOL = "[T]";
-    private static final String TODO_FILE_SYMBOL = "T|";
+    private static final String TODO_FILE_SYMBOL = "T";
     private static final String SEPARATOR = "|";
 
     /**
@@ -43,6 +43,6 @@ public class Todo extends Task{
      * @return The standard form for todotask to write into local file.
      */
     public String printIntoFile(){
-        return TODO_FILE_SYMBOL + isDone + SEPARATOR + description;
+        return TODO_FILE_SYMBOL + SEPARATOR + isDone + SEPARATOR + description;
     }
 }

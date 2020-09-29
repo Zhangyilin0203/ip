@@ -1,27 +1,17 @@
 package duke;
 
-import duke.task.Task;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Date;
-import java.text.ParseException;
 import java.time.LocalDate;
-import java.util.Date;
-import java.time.format.DateTimeFormatter;
-import java.text.SimpleDateFormat;
 
 public class Parser {
-    private static final String TODO = "todo";
-    private static final String DEADLINE = "deadline";
-    private static final String EVENT = "event";
-    private static final String DELETE = "delete";
-    private static final String DONE = "done";
-    private static final String LIST = "list";
-    private static final String BYE = "bye";
-    private static final String FIND = "find";
+    private static final String TODO_COMMAND = "todo";
+    private static final String DEADLINE_COMMAND = "deadline";
+    private static final String EVENT_COMMAND = "event";
+    private static final String DELETE_COMMAND = "delete";
+    private static final String DONE_COMMAND = "done";
+    private static final String LIST_COMMAND = "list";
+    private static final String BYE_COMMAND = "bye";
+    private static final String FIND_COMMAND = "find";
     private static final String FAIL = "fail";
 
     /**
@@ -33,26 +23,26 @@ public class Parser {
      */
     public static String getCommand(String inputLine) throws DukeException {
         try{
-            if (inputLine.equals(LIST)) {
-                return LIST;
-            } else if (inputLine.equals(BYE)) {
-                return BYE;
-            } else if ( inputLine.equals(TODO) || inputLine.equals(DEADLINE)
-                    || inputLine.equals(EVENT) || inputLine.equals(DONE)
-                    || inputLine.equals(DELETE)) {
+            if (inputLine.equals(LIST_COMMAND)) {
+                return LIST_COMMAND;
+            } else if (inputLine.equals(BYE_COMMAND)) {
+                return BYE_COMMAND;
+            } else if ( inputLine.equals(TODO_COMMAND) || inputLine.equals(DEADLINE_COMMAND)
+                    || inputLine.equals(EVENT_COMMAND) || inputLine.equals(DONE_COMMAND)
+                    || inputLine.equals(DELETE_COMMAND)) {
                 throw new DukeException();
-            } else if (inputLine.contains(TODO)) {
-                return TODO;
-            } else if (inputLine.contains(EVENT)) {
-                return EVENT;
-            } else if (inputLine.contains(DEADLINE)) {
-                return DEADLINE;
-            } else if (inputLine.contains(DELETE)) {
-                return DELETE;
-            } else if (inputLine.contains(DONE)) {
-                return DONE;
-            } else if (inputLine.contains(FIND)) {
-                return FIND;
+            } else if (inputLine.contains(TODO_COMMAND)) {
+                return TODO_COMMAND;
+            } else if (inputLine.contains(EVENT_COMMAND)) {
+                return EVENT_COMMAND;
+            } else if (inputLine.contains(DEADLINE_COMMAND)) {
+                return DEADLINE_COMMAND;
+            } else if (inputLine.contains(DELETE_COMMAND)) {
+                return DELETE_COMMAND;
+            } else if (inputLine.contains(DONE_COMMAND)) {
+                return DONE_COMMAND;
+            } else if (inputLine.contains(FIND_COMMAND)) {
+                return FIND_COMMAND;
             }
             else {
                 throw new DukeException();

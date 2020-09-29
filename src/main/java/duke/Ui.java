@@ -8,16 +8,16 @@ public class Ui {
     public static int countTasks = 0;
     private static TaskList tasks = new TaskList();
     private Parser parser;
-
-    private static final String TODO = "todo";
-    private static final String DEADLINE = "deadline";
-    private static final String EVENT = "event";
-    private static final String DELETE = "delete";
-    private static final String DONE = "done";
-    private static final String LIST = "list";
-    private static final String BYE = "bye";
-    private static final String FIND = "find";
-
+    
+    private static final String TODO_COMMAND = "todo";
+    private static final String DEADLINE_COMMAND = "deadline";
+    private static final String EVENT_COMMAND = "event";
+    private static final String DELETE_COMMAND = "delete";
+    private static final String DONE_COMMAND = "done";
+    private static final String LIST_COMMAND = "list";
+    private static final String BYE_COMMAND = "bye";
+    private static final String FIND_COMMAND = "find";
+    
 
     /**
      * Get the total number of tasks after the data is read from a file.
@@ -42,32 +42,32 @@ public class Ui {
             Ui.printLine();
             String command = parser.getCommand(inputLine);
             switch (command) {
-            case LIST:
+            case LIST_COMMAND:
                 tasks.printList();
                 break;
-            case DONE:
+            case DONE_COMMAND:
                 tasks.markAsDone(inputLine, countTasks);
                 break;
-            case TODO:
+            case TODO_COMMAND:
                 countTasks++;
                 tasks.addTodoTask(inputLine);
                 break;
-            case DEADLINE:
+            case DEADLINE_COMMAND:
                 countTasks++;
                 tasks.addDeadlineTask(inputLine);
                 break;
-            case EVENT:
+            case EVENT_COMMAND:
                 countTasks++;
                 tasks.addEventTask(inputLine);
                 break;
-            case DELETE:
+            case DELETE_COMMAND:
                 tasks.deleteItem(inputLine, countTasks);
                 countTasks--;
                 break;
-            case FIND:
+            case FIND_COMMAND:
                 tasks.findTasks(inputLine);
                 break;
-            case BYE:
+            case BYE_COMMAND:
                 return;
             }
             Ui.printLine();
@@ -91,15 +91,15 @@ public class Ui {
      * @param inputLine User input command.
      */
     public static void dealWithException(String inputLine) {
-        if (inputLine.equals(TODO)) {
+        if (inputLine.equals(TODO_COMMAND)) {
             System.out.println("OOPS!!! The description of a todo cannot be empty.");
-        } else if (inputLine.equals(DEADLINE)) {
+        } else if (inputLine.equals(DEADLINE_COMMAND)) {
             System.out.println("OOPS!!! The description of a deadline cannot be empty.");
-        } else if (inputLine.equals(EVENT)) {
+        } else if (inputLine.equals(EVENT_COMMAND)) {
             System.out.println("OOPS!!! The description of a event cannot be empty.");
-        } else if (inputLine.contains(DONE)) {
+        } else if (inputLine.contains(DONE_COMMAND)) {
             System.out.println("OOPS!!! The done index is out of bound.");
-        } else if (inputLine.contains(DELETE)) {
+        } else if (inputLine.contains(DELETE_COMMAND)) {
             System.out.println("OOPS!!! The delete index is out of bound.");
         } else {
             System.out.println(("OOPS!!! I'm sorry, but I don't know what that means :-("));

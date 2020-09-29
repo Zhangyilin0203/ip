@@ -17,7 +17,7 @@ import java.util.Scanner;
  */
 public class Storage {
     private static final int TYPE = 0;
-    private static final int DISCRIPTION = 2;
+    private static final int DESCRIPTION = 2;
     private static final int DATE = 3;
     private static final int IS_DONE = 1;
     private static ArrayList<Task> taskArrayList;
@@ -68,11 +68,11 @@ public class Storage {
             while (sc.hasNext()) {
                 String[] taskInFile = sc.nextLine().split("\\|");
                 if (taskInFile[TYPE].equals("T")) {
-                    task = new Todo(taskInFile[DISCRIPTION]);
+                    task = new Todo(taskInFile[DESCRIPTION]);
                 } else if(taskInFile[TYPE].equals("D")) {
-                    task = new Deadline(taskInFile[DISCRIPTION],taskInFile[DATE]);
+                    task = new Deadline(taskInFile[DESCRIPTION],taskInFile[DATE]);
                 } else {
-                    task = new Event(taskInFile[DISCRIPTION], taskInFile[DATE]);
+                    task = new Event(taskInFile[DESCRIPTION], taskInFile[DATE]);
                 }
                 countFileTasks++;
                 if (taskInFile[IS_DONE].equals("true")) {
