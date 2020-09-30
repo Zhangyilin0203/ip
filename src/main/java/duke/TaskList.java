@@ -175,7 +175,7 @@ public class TaskList {
     public static void deleteItem(String inputLine, int countTasks) throws DukeException {
         int countTasksLocal = countTasks;
         int index = Integer.parseInt(inputLine.substring(DELETE_COMMAND_LENGTH + 1));
-        if(index > countTasks){
+        if(index > countTasksLocal){
             throw new DukeException();
         }
         Task task = tasksList.remove(index - 1);

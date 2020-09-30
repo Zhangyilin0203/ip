@@ -41,34 +41,38 @@ public class Ui {
             inputLine = in.nextLine();
             Ui.printLine();
             String command = parser.getCommand(inputLine);
-            switch (command) {
-            case LIST_COMMAND:
-                tasks.printList();
-                break;
-            case DONE_COMMAND:
-                tasks.markAsDone(inputLine, countTasks);
-                break;
-            case TODO_COMMAND:
-                countTasks++;
-                tasks.addTodoTask(inputLine);
-                break;
-            case DEADLINE_COMMAND:
-                countTasks++;
-                tasks.addDeadlineTask(inputLine);
-                break;
-            case EVENT_COMMAND:
-                countTasks++;
-                tasks.addEventTask(inputLine);
-                break;
-            case DELETE_COMMAND:
-                tasks.deleteItem(inputLine, countTasks);
-                countTasks--;
-                break;
-            case FIND_COMMAND:
-                tasks.findTasks(inputLine);
-                break;
-            case BYE_COMMAND:
-                return;
+            try{
+                switch (command) {
+                case LIST_COMMAND:
+                    tasks.printList();
+                    break;
+                case DONE_COMMAND:
+                    tasks.markAsDone(inputLine, countTasks);
+                    break;
+                case TODO_COMMAND:
+                    countTasks++;
+                    tasks.addTodoTask(inputLine);
+                    break;
+                case DEADLINE_COMMAND:
+                    countTasks++;
+                    tasks.addDeadlineTask(inputLine);
+                    break;
+                case EVENT_COMMAND:
+                    countTasks++;
+                    tasks.addEventTask(inputLine);
+                    break;
+                case DELETE_COMMAND:
+                    tasks.deleteItem(inputLine, countTasks);
+                    countTasks--;
+                    break;
+                case FIND_COMMAND:
+                    tasks.findTasks(inputLine);
+                    break;
+                case BYE_COMMAND:
+                    return;
+                }
+            } catch (DukeException e) {
+                dealWithException(inputLine);
             }
             Ui.printLine();
         }
