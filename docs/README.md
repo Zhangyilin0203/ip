@@ -6,7 +6,7 @@ Duke is a Personal Assistant Chatbot that helps a person to keep track of his or
 ## Features 
 
 ### Add tasks
-Add any one of the three types of tasks: `todo`, `deadline`, `event`.
+Add any one of the three types of tasks `todo`, `deadline`, `event` with a task description.
 
 For `deadline`, you need to add a due date. 
 
@@ -28,7 +28,7 @@ Search for specific tasks by giving a keyword.
 Load tasks from a local `.txt` file. Everytime when Duke is open, all the tasks will automatically be loaded from the local file.
 
 ### Save tasks
-Save tasks to a local .txt file. Everytime when the user makes some changes, the changed data will be automatically stored into the local file.
+Save tasks to a local `.txt` file. Everytime when the user makes some changes, the changed data will be automatically stored into the local file.
 
 ### Exit
 Exit Duke by typing `bye`.
